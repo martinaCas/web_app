@@ -12,12 +12,12 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool _obscureTextPassword = true;
 
-  final _focusNodeEmail = FocusNode();
+  final _focusNodeUsername = FocusNode();
   final _focusNodePassword = FocusNode();
 
   @override
   void dispose() {
-    _focusNodeEmail.dispose();
+    _focusNodeUsername.dispose();
     _focusNodePassword.dispose();
     super.dispose();
   }
@@ -37,6 +37,7 @@ class _SignInState extends State<SignIn> {
         ],
       ));
 
+//FORM
   Widget _formWidget() => Card(
         elevation: 2.0,
         color: Colors.white,
@@ -45,20 +46,21 @@ class _SignInState extends State<SignIn> {
           padding: const EdgeInsets.only(top: 8.0, bottom: 24.0),
           //width: 300.0,
           child: Column(children: [
-            _emailField(),
+            _usernameField(),
             const Divider(height: 0),
             _passwordField(),
           ]),
         ),
       );
 
-  Widget _emailField() => Padding(
+//USERNAME
+  Widget _usernameField() => Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 8.0,
         horizontal: 24.0,
       ),
       child: TextField(
-        focusNode: _focusNodeEmail,
+        focusNode: _focusNodeUsername,
         keyboardType: TextInputType.emailAddress,
         style: const TextStyle(
           fontSize: 16.0,
@@ -66,10 +68,10 @@ class _SignInState extends State<SignIn> {
         ),
         decoration: const InputDecoration(
             border: InputBorder.none,
-            hintText: 'Indirizzo email',
+            hintText: 'Username',
             hintStyle: TextStyle(fontSize: 17.0),
             icon: Icon(
-              FontAwesomeIcons.envelope,
+              FontAwesomeIcons.userTag,
               color: Colors.black,
               size: 22.0,
             )),
@@ -78,6 +80,7 @@ class _SignInState extends State<SignIn> {
         },
       ));
 
+//PASSWORD
   Widget _passwordField() => Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 8.0,
@@ -122,10 +125,11 @@ class _SignInState extends State<SignIn> {
         textInputAction: TextInputAction.go,
       ));
 
+//BOTTONE
   Widget _signInButton() => ElevatedButton(
         onPressed: () {},
         child: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 48.0),
+          padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 48.0),
           child: Text(
             'ACCEDI',
             style: TextStyle(color: Colors.white, fontSize: 25.0),

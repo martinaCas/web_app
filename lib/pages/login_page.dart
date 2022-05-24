@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
       );
 
   Widget _selectorWidget() => Container(
+        height: 50.0,
         decoration: BoxDecoration(
             color: Colors.cyan[700],
             borderRadius: BorderRadius.all(Radius.circular(25.0))),
@@ -57,14 +58,14 @@ class _LoginPageState extends State<LoginPage> {
                         curve: Curves.decelerate),
                     child: Text(
                       'Accedi',
-                      style: TextStyle(color: signInColor),
+                      style: TextStyle(color: signInColor, fontSize: 21.0),
                     )),
                 TextButton(
                     onPressed: () => _pageController.animateToPage(1,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.decelerate),
                     child: Text('Registrati',
-                        style: TextStyle(color: signUpColor))),
+                        style: TextStyle(color: signUpColor, fontSize: 21.0))),
               ],
             )),
       );

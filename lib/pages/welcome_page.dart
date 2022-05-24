@@ -18,21 +18,30 @@ class WelcomePage extends StatelessWidget {
         ),
       );
 
-  Widget _welcomeWidget() => Expanded(
-        child: Column(
-          children: const [
-            Image(
-              image: AssetImage('assets/images/welcome.png'),
-              fit: BoxFit.fitWidth,
-            ),
-            Text('Welcome'),
-          ],
-        ),
+  Widget _welcomeWidget() => Stack(
+        children: [
+          Column(
+            children: const [
+              Image(
+                image: AssetImage('assets/images/welcome.png'),
+                fit: BoxFit.fitWidth,
+              ),
+            ],
+          ),
+        ],
       );
 
   Widget _signInButton(BuildContext context) => ElevatedButton(
-        child: Text('START'),
-        onPressed: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const LoginPage())),
-      );
+      onPressed: () => Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => const LoginPage())),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 70.0),
+        child: Text(
+          'START',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25.0,
+          ),
+        ),
+      ));
 }
