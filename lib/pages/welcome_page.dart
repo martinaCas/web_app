@@ -8,7 +8,10 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Container(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: 150,
+          ),
           child: Column(
             children: [
               _welcomeWidget(),
@@ -24,7 +27,7 @@ class WelcomePage extends StatelessWidget {
             children: const [
               Image(
                 image: AssetImage('assets/images/welcome.png'),
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fill,
               ),
             ],
           ),

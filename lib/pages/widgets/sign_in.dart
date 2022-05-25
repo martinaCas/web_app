@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:web_app/pages/list_view.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) => Padding(
-      padding: const EdgeInsets.only(top: 24.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           Stack(
@@ -112,8 +113,8 @@ class _SignInState extends State<SignIn> {
             },
             child: Icon(
               _obscureTextPassword
-                  ? FontAwesomeIcons.eye
-                  : FontAwesomeIcons.eyeSlash,
+                  ? FontAwesomeIcons.eyeSlash
+                  : FontAwesomeIcons.eye,
               size: 15.0,
               color: Colors.black,
             ),
@@ -127,7 +128,8 @@ class _SignInState extends State<SignIn> {
 
 //BOTTONE
   Widget _signInButton() => ElevatedButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const ListViewClass())),
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 48.0),
           child: Text(

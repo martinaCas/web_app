@@ -26,23 +26,28 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: Container(
+      appBar: AppBar(),
+      body: Scrollbar(
+        child: Container(
+            padding: EdgeInsets.all(150.0),
             child: Column(
-          children: [
-            _loginWidget(),
-            _selectorWidget(),
-            _pageViewWidget(),
-          ],
-        )),
-      );
+              children: [
+                //_loginWidget(),
+                _selectorWidget(),
+                _pageViewWidget(),
+              ],
+            )),
+      ));
 
-  Widget _loginWidget() => const Image(
+  /*Widget _loginWidget() => Container(
+      padding: EdgeInsets.all(5.0),
+      child: const Image(
         image: AssetImage('assets/images/welcome.png'),
-        fit: BoxFit.fitWidth,
-      );
+        fit: BoxFit.cover,
+      ));*/
 
   Widget _selectorWidget() => Container(
+        padding: const EdgeInsets.all(8.0),
         height: 50.0,
         decoration: BoxDecoration(
             color: Colors.cyan[700],

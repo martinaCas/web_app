@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(top: 24.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Stack(
