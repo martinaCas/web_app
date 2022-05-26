@@ -1,22 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/pages/widgets/recipe.dart';
 
-class RecipeView extends StatelessWidget {
-  const RecipeView({Key? key}) : super(key: key);
+class RecipeDetails extends StatelessWidget {
+  final Recipe recipe;
+
+  const RecipeDetails({Key? key, required this.recipe}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: buildHomePage('Strawberry Pavlova Recipe'),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        body: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: buildDetailPage(recipe.title)),
+      );
 
-  Widget buildHomePage(String title) {
-    const titleText = Padding(
+  Widget buildDetailPage(String title) {
+    final titleText = Padding(
       padding: EdgeInsets.all(20),
       child: Text(
-        'Strawberry Pavlova',
-        style: TextStyle(
+        recipe.title,
+        style: const TextStyle(
           fontWeight: FontWeight.w800,
           letterSpacing: 0.5,
           fontSize: 30,
@@ -24,17 +27,20 @@ class RecipeView extends StatelessWidget {
       ),
     );
 
-    const subTitle = Text(
-      'Pavlova is a meringue-based dessert named after the Russian ballerina '
+    /*Pavlova is a meringue-based dessert named after the Russian ballerina '
       'Anna Pavlova. Pavlova features a crisp crust and soft, light inside, '
-      'topped with fruit and whipped cream.',
+      'topped with fruit and whipped cream. */
+
+    final subTitle = Text(
+      recipe.descript,
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: const TextStyle(
         fontFamily: 'Georgia',
         fontSize: 25,
       ),
     );
 
+/*
     var stars = Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -44,9 +50,9 @@ class RecipeView extends StatelessWidget {
         const Icon(Icons.star, color: Colors.black),
         const Icon(Icons.star, color: Colors.black),
       ],
-    );
+    );*/
 
-    final ratings = Container(
+    /* final ratings = Container(
       padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -62,7 +68,7 @@ class RecipeView extends StatelessWidget {
               ))
         ],
       ),
-    );
+    );*/
 
     const descTextStyle = TextStyle(
       color: Colors.black,
@@ -109,25 +115,28 @@ class RecipeView extends StatelessWidget {
         children: [
           titleText,
           subTitle,
-          ratings,
+          // ratings,
           iconList,
         ],
       ),
     );
 
     final mainImage = Image.asset(
-      'assets/images/pavlova.jpg',
+      recipe.path_image,
       fit: BoxFit.cover,
     );
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
       body: Center(
         child: Container(
           margin: const EdgeInsets.fromLTRB(0, 40, 0, 30),
           height: 600,
           child: Card(
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 SizedBox(
                   width: 440,
