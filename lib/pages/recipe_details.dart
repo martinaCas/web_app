@@ -10,13 +10,15 @@ class RecipeDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: buildDetailPage(recipe.title)),
       );
 
+//costruzione pagina
   Widget buildDetailPage(String title) {
+    //titolo
     final titleText = Padding(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Text(
         recipe.title,
         style: const TextStyle(
@@ -27,81 +29,50 @@ class RecipeDetails extends StatelessWidget {
       ),
     );
 
-    /*Pavlova is a meringue-based dessert named after the Russian ballerina '
-      'Anna Pavlova. Pavlova features a crisp crust and soft, light inside, '
-      'topped with fruit and whipped cream. */
-
+//sottotitolo
     final subTitle = Text(
       recipe.descript,
       textAlign: TextAlign.center,
       style: const TextStyle(
         fontFamily: 'Georgia',
-        fontSize: 25,
+        fontSize: 18,
       ),
     );
 
-/*
-    var stars = Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(Icons.stars, color: Colors.green[500]),
-        Icon(Icons.stars, color: Colors.green[500]),
-        Icon(Icons.stars, color: Colors.green[500]),
-        const Icon(Icons.star, color: Colors.black),
-        const Icon(Icons.star, color: Colors.black),
-      ],
-    );*/
-
-    /* final ratings = Container(
-      padding: const EdgeInsets.all(20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          stars,
-          const Text('170 Reviews',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w800,
-                fontFamily: 'Roboto',
-                letterSpacing: 0.5,
-                fontSize: 20,
-              ))
-        ],
-      ),
-    );*/
-
+//stile descrizione
     const descTextStyle = TextStyle(
       color: Colors.black,
       fontWeight: FontWeight.w800,
       fontFamily: 'Roboto',
-      letterSpacing: 0.5,
-      fontSize: 18,
+      letterSpacing: 0.3,
+      fontSize: 15,
       height: 2,
     );
 
+//lista icone centrali
     final iconList = DefaultTextStyle.merge(
         style: descTextStyle,
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(10.0),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Column(
               children: [
-                Icon(Icons.kitchen, color: Colors.green[500]),
+                Icon(Icons.kitchen, color: Colors.cyan[500]),
                 const Text('PREP:'),
                 const Text('25 min'),
               ],
             ),
             Column(
               children: [
-                Icon(Icons.timer, color: Colors.green[500]),
+                Icon(Icons.timer, color: Colors.cyan[500]),
                 const Text('COOK:'),
                 const Text('1 hr'),
               ],
             ),
             Column(
               children: [
-                Icon(Icons.restaurant, color: Colors.green[500]),
+                Icon(Icons.restaurant, color: Colors.cyan[500]),
                 const Text('FEEDS:'),
                 const Text('4-6'),
               ],
@@ -109,6 +80,38 @@ class RecipeDetails extends StatelessWidget {
           ]),
         ));
 
+//Bottoni per eliminare e modificare
+    final updateButton = DefaultTextStyle.merge(
+        style: descTextStyle,
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(
+              children: [
+                const Text('Modifica ricetta'),
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.edit),
+                    color: Colors.cyan[700]),
+              ],
+            ),
+            Column(
+              children: [],
+            ),
+            Column(
+              children: [
+                const Text('Elimina ricetta'),
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.delete),
+                    color: Colors.cyan[700]),
+              ],
+            )
+          ]),
+        ));
+
+//colonna sinistra
     final leftColumn = Container(
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
       child: Column(
@@ -117,10 +120,12 @@ class RecipeDetails extends StatelessWidget {
           subTitle,
           // ratings,
           iconList,
+          updateButton,
         ],
       ),
     );
 
+//immagine principale
     final mainImage = Image.asset(
       recipe.path_image,
       fit: BoxFit.cover,

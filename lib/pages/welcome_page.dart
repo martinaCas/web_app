@@ -8,9 +8,10 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: 10,
-            horizontal: 150,
+          padding: const EdgeInsets.only(
+            left: 200.0,
+            top: 16.0,
+            right: 200.0,
           ),
           child: Column(
             children: [

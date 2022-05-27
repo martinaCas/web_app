@@ -146,8 +146,8 @@ class _SignUpState extends State<SignUp> {
               },
               child: Icon(
                 _obscureTextPassword
-                    ? FontAwesomeIcons.eye
-                    : FontAwesomeIcons.eyeSlash,
+                    ? FontAwesomeIcons.eyeSlash
+                    : FontAwesomeIcons.eye,
                 size: 15.0,
                 color: Colors.black,
               ),
