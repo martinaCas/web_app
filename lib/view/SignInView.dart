@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/controller/SignInController.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:web_app/pages/list_view.dart';
+import 'package:web_app/controller/RecipeListController.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignInView extends StatefulWidget {
+  const SignInView({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _SignInState();
+  State<StatefulWidget> createState() => _SignInViewState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInViewState extends State<SignInView> {
   bool _obscureTextPassword = true;
 
   final _focusNodeUsername = FocusNode();

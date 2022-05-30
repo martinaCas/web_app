@@ -1,33 +1,19 @@
-import 'dart:html';
-import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:web_app/pages/recipe_details.dart';
-import 'package:web_app/pages/recipe_view.dart';
-import 'package:web_app/controller/recipe.dart';
 
-class ListViewClass extends StatefulWidget {
-  const ListViewClass({Key? key}) : super(key: key);
+import '../controller/Recipe.dart';
+import 'RecipeView.dart';
+
+class RecipeListView extends StatefulWidget {
+  const RecipeListView({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _ListViewClassState();
+  State<StatefulWidget> createState() => _RecipeListViewState();
 }
 
-class _ListViewClassState extends State<ListViewClass> {
+class _RecipeListViewState extends State<RecipeListView> {
   String titolo_ricetta = '';
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-//build
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(

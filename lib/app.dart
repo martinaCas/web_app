@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:web_app/pages/welcome_page.dart';
+import 'package:web_app/view/WelcomeView.dart';
 
 void main() => runApp(const App());
 

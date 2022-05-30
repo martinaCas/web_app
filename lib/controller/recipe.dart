@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class Recipe {
   final String title;
   final String descript;

@@ -1,17 +1,20 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:web_app/app.dart';
-import 'package:web_app/misc/bubble_indicator_painter.dart';
-import 'package:web_app/pages/widgets/sign_in.dart';
-import 'package:web_app/pages/widgets/sign_up.dart';
+import 'package:flutter/widgets.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import '../controller/SignInController.dart';
+import '../controller/SignUpController.dart';
+import '../misc/bubble_indicator_painter.dart';
+
+class LoginView extends StatefulWidget {
+  const LoginView({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _LoginPageState();
+  State<StatefulWidget> createState() => _LoginViewState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginViewState extends State<LoginView> {
   late PageController _pageController;
 
   Color signInColor = Colors.black;

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:web_app/controller/recipe.dart';
+import 'package:web_app/controller/Recipe.dart';
 
 class RecipeDetails extends StatelessWidget {
   final Recipe recipe;
