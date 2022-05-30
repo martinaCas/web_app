@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:web_app/pages/recipe_details.dart';
 import 'package:web_app/pages/recipe_view.dart';
-import 'package:web_app/pages/widgets/recipe.dart';
+import 'package:web_app/controller/recipe.dart';
 
 class ListViewClass extends StatefulWidget {
   const ListViewClass({Key? key}) : super(key: key);
