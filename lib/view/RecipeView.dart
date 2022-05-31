@@ -114,7 +114,9 @@ class RecipeDetails extends StatelessWidget {
                       //var choose = deleteThisRecipe(recipe.title);
 
                       Route route = MaterialPageRoute(
-                        builder: (context) => const RecipeListView(),
+                        builder: (context) => const RecipeListView(
+                          confirmDelete: false,
+                        ),
                       );
                       Navigator.pop(context, route);
                     },

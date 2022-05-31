@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/view/AlertView.dart';
 import 'package:web_app/view/ExRecipeView.dart';
 
 import '../controller/Recipe.dart';
 import 'RecipeView.dart';
 
 class RecipeListView extends StatefulWidget {
-  const RecipeListView({Key? key}) : super(key: key);
+  const RecipeListView({Key? key, required bool confirmDelete})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _RecipeListViewState();
@@ -15,7 +17,7 @@ class RecipeListView extends StatefulWidget {
 class _RecipeListViewState extends State<RecipeListView> {
   String titolo_ricetta = '';
   bool isPressed = false;
-  bool delete = false;
+  bool delete = true;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -51,9 +53,7 @@ class _RecipeListViewState extends State<RecipeListView> {
                 isPressed = true;
                 Recipe recipe;
                 Route route;
-                //recipeList.remove(index);
-                // List<Recipe> listRec =
-                //getRecipeList(recipeList as List<Recipe>);
+
                 recipe = _recipeBuilder(index);
                 route = MaterialPageRoute(
                   builder: (context) => RecipeDetails(recipe: recipe),
@@ -159,9 +159,7 @@ class _RecipeListViewState extends State<RecipeListView> {
     return recList;
   }
 
-  void deleteItem(String title_recipe) {
-    
-  }
+  void deleteItem(String title_recipe) {}
 
   // Recipe findRecipeByTitle(String title) {}
 }
