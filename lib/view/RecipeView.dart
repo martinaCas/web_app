@@ -1,17 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_app/controller/Recipe.dart';
+import 'package:web_app/view/RecipeListView.dart';
+import '../controller/Recipe.dart';
+import 'RecipeView.dart';
 
 class RecipeDetails extends StatelessWidget {
   final Recipe recipe;
+  late bool isPressed = false;
 
-  const RecipeDetails({Key? key, required this.recipe}) : super(key: key);
+  RecipeDetails({Key? key, required this.recipe}) : super(key: key);
+
+  get context => null;
 
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: buildDetailPage(recipe.title)),
+          padding: const EdgeInsets.all(16.0),
+          child: buildDetailPage(recipe.title),
+        ),
       );
 
 //costruzione pagina
@@ -103,7 +110,14 @@ class RecipeDetails extends StatelessWidget {
               children: [
                 const Text('Elimina ricetta'),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      //var choose = deleteThisRecipe(recipe.title);
+
+                      Route route = MaterialPageRoute(
+                        builder: (context) => const RecipeListView(),
+                      );
+                      Navigator.pop(context, route);
+                    },
                     icon: const Icon(Icons.delete),
                     color: Colors.cyan[700]),
               ],
@@ -156,3 +170,46 @@ class RecipeDetails extends StatelessWidget {
     );
   }
 }
+
+/*
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('AlertDialog'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Text('Sei sicuro di voler eliminare?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Sì'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('No'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }*/
+
+/*
+  bool deleteThisRecipe(String title) {
+    return true;
+  }*/
+
+  /* void getCurrentRecipe() {
+    List<Recipe> list = getRecipeList();*/
+  // }
