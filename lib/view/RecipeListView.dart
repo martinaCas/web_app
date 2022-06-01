@@ -158,8 +158,4 @@ class _RecipeListViewState extends State<RecipeListView> {
     recList = recipeList as List<Recipe>;
     return recList;
   }
-
-  void deleteItem(String title_recipe) {}
-
-  // Recipe findRecipeByTitle(String title) {}
 }

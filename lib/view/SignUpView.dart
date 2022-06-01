@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:web_app/view/api_view/CommentAPIView.dart';
+import 'package:web_app/view/api_view/UserAPIView.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -162,7 +164,8 @@ class _SignUpState extends State<SignUpView> {
 
   //BOTTONE
   Widget _signUpButton() => ElevatedButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const UserAPIView())),
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 48.0),
           child: Text(

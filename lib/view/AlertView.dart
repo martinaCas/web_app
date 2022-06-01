@@ -47,4 +47,3 @@ class _AlertViewState extends State<AlertView> {
       );
 }
 
-//Widget _showMyDialog(BuildContext context) => 

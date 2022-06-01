@@ -1,0 +1,21 @@
+import 'dart:developer';
+
+import 'package:http/http.dart' as http;
+
+import 'ApiConstants.dart';
+import 'CommentModel.dart';
+
+class ApiService {
+  Future<List<CommentModel>?> getComments() async {
+    try {
+      var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint);
+      var response = await http.get(url);
+      if (response.statusCode == 200) {
+        List<CommentModel> _model = CommentModelFromJson(response.body);
+        return _model;
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+  }
+}
