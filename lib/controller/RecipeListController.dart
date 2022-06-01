@@ -21,7 +21,5 @@ class _ListViewClassState extends State<ListViewClass> {
   }
 
   @override
-  Widget build(BuildContext context) => const RecipeListView(
-        confirmDelete: false,
-      );
+  Widget build(BuildContext context) => const RecipeListView();
 }
