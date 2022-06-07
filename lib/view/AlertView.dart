@@ -30,7 +30,7 @@ class _AlertViewState extends State<AlertView> {
               ListGenerate().deleteItem();
 
               Route route =
-                  MaterialPageRoute(builder: ((context) => RecipeListView()));
+                  MaterialPageRoute(builder: ((context) => const RecipeListView()));
               Navigator.push(context, route);
             },
           ),
@@ -39,7 +39,7 @@ class _AlertViewState extends State<AlertView> {
             onPressed: () {
               var confirmDelete = false;
               Route route =
-                  MaterialPageRoute(builder: ((context) => RecipeListView()));
+                  MaterialPageRoute(builder: ((context) => const RecipeListView()));
               Navigator.push(context, route);
             },
           ),
