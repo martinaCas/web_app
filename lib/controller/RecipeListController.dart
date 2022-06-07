@@ -21,5 +21,5 @@ class _ListViewClassState extends State<ListViewClass> {
   }
 
   @override
-  Widget build(BuildContext context) => RecipeListView();
+  Widget build(BuildContext context) => const RecipeListView();
 }

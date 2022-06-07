@@ -1,7 +1,11 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_app/controller/Recipe.dart';
+import 'package:web_app/view/AlertView.dart';
 import 'package:web_app/view/RecipeListView.dart';
+import 'package:web_app/view/UpdateButtonView.dart';
 import '../controller/Recipe.dart';
 import 'RecipeView.dart';
 
@@ -9,9 +13,13 @@ class RecipeDetails extends StatelessWidget {
   final Recipe recipe;
   late bool isPressed = false;
 
+  // BuildContext context = context;
+
   RecipeDetails({Key? key, required this.recipe}) : super(key: key);
 
-  get context => null;
+  int getActualId() {
+    return recipe.id;
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -87,44 +95,6 @@ class RecipeDetails extends StatelessWidget {
           ]),
         ));
 
-//Bottoni per eliminare e modificare
-    final updateButton = DefaultTextStyle.merge(
-        style: descTextStyle,
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Column(
-              children: [
-                const Text('Modifica ricetta'),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.edit),
-                    color: Colors.cyan[700]),
-              ],
-            ),
-            Column(
-              children: [],
-            ),
-            Column(
-              children: [
-                const Text('Elimina ricetta'),
-                IconButton(
-                    onPressed: () {
-                      //var choose = deleteThisRecipe(recipe.title);
-
-                      Route route = MaterialPageRoute(
-                        builder: (context) => const RecipeListView(),
-                      );
-                      Navigator.pop(context, route);
-                    },
-                    icon: const Icon(Icons.delete),
-                    color: Colors.cyan[700]),
-              ],
-            )
-          ]),
-        ));
-
 //colonna sinistra
     final leftColumn = Container(
       padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
@@ -134,7 +104,7 @@ class RecipeDetails extends StatelessWidget {
           subTitle,
           // ratings,
           iconList,
-          updateButton,
+          UpdateButtonView(recipe),
         ],
       ),
     );
@@ -170,46 +140,3 @@ class RecipeDetails extends StatelessWidget {
     );
   }
 }
-
-/*
-  Future<void> _showMyDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('AlertDialog'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: const <Widget>[
-                Text('Sei sicuro di voler eliminare?'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Sì'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: const Text('No'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }*/
-
-/*
-  bool deleteThisRecipe(String title) {
-    return true;
-  }*/
-
-  /* void getCurrentRecipe() {
-    List<Recipe> list = getRecipeList();*/
-  // }

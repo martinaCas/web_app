@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/controller/Recipe.dart';
+import 'package:web_app/view/ListGenerate.dart';
+import 'package:web_app/view/RecipeListView.dart';
 
-Future<void> _showMyDialog() async {
-  var context;
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-      return AlertDialog(
+class AlertView extends StatefulWidget {
+  AlertView({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _AlertViewState();
+}
+
+class _AlertViewState extends State<AlertView> {
+  get recipe => this;
+
+  @override
+  Widget build(BuildContext context) => AlertDialog(
         title: const Text('AlertDialog'),
         content: SingleChildScrollView(
           child: ListBody(
@@ -19,17 +27,23 @@ Future<void> _showMyDialog() async {
           TextButton(
             child: const Text('Sì'),
             onPressed: () {
-              Navigator.of(context).pop();
+              ListGenerate().deleteItem();
+
+              Route route =
+                  MaterialPageRoute(builder: ((context) => RecipeListView()));
+              Navigator.push(context, route);
             },
           ),
           TextButton(
             child: const Text('No'),
             onPressed: () {
-              Navigator.of(context).pop();
+              var confirmDelete = false;
+              Route route =
+                  MaterialPageRoute(builder: ((context) => RecipeListView()));
+              Navigator.push(context, route);
             },
           ),
         ],
       );
-    },
-  );
 }
+
