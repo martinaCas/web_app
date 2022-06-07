@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class RecipeView extends StatelessWidget {
   const RecipeView({Key? key}) : super(key: key);

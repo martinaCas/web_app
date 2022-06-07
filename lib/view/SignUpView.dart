@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:web_app/view/api_view/CommentAPIView.dart';
 import 'package:web_app/view/api_view/UserAPIView.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);

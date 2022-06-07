@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_app/controller/Recipe.dart';
 import 'package:web_app/view/ListGenerate.dart';
 import 'package:web_app/view/RecipeListView.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AlertView extends StatefulWidget {
   AlertView({Key? key}) : super(key: key);
@@ -29,8 +30,8 @@ class _AlertViewState extends State<AlertView> {
             onPressed: () {
               ListGenerate().deleteItem();
 
-              Route route =
-                  MaterialPageRoute(builder: ((context) => RecipeListView()));
+              Route route = MaterialPageRoute(
+                  builder: ((context) => const RecipeListView()));
               Navigator.push(context, route);
             },
           ),
@@ -38,12 +39,11 @@ class _AlertViewState extends State<AlertView> {
             child: const Text('No'),
             onPressed: () {
               var confirmDelete = false;
-              Route route =
-                  MaterialPageRoute(builder: ((context) => RecipeListView()));
+              Route route = MaterialPageRoute(
+                  builder: ((context) => const RecipeListView()));
               Navigator.push(context, route);
             },
           ),
         ],
       );
 }
-

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_app/view/WelcomeView.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 void main() => runApp(const App());
 

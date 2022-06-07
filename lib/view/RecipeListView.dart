@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:web_app/view/AlertView.dart';
 import 'package:web_app/view/ExRecipeView.dart';
 import 'package:web_app/view/ListGenerate.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+
 
 import '../controller/Recipe.dart';
 import 'RecipeView.dart';
