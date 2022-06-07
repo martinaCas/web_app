@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_app/view/ExRecipeView.dart';
 import 'package:web_app/view/UpdateButtonView.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class ListGenerate {
   //late int actualId = UpdateButtonView(this).actualId;

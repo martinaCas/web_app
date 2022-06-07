@@ -8,6 +8,7 @@ import 'package:web_app/view/RecipeListView.dart';
 import 'package:web_app/view/UpdateButtonView.dart';
 import '../controller/Recipe.dart';
 import 'RecipeView.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class RecipeDetails extends StatelessWidget {
   final Recipe recipe;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../api/model/UserModel.dart';
 import '../../api/service/ApiService.dart';
